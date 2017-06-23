@@ -40,7 +40,7 @@ public class MainClass extends JavaPlugin{
 //					//als je je eigen wilt genezen.
 //				}else{
 					
-					if(args[0] == "add"){
+					if(args[0].equals("add")){
 						
 						speler.sendMessage("test");
 						
