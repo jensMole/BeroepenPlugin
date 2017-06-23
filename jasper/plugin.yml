@@ -4,4 +4,7 @@ version: 1.0
 commands:
     beroep:
         description: test
-        usage: /<command>
+        usage: /<command
+    info: 
+        description: test
+        usage: /<command>   

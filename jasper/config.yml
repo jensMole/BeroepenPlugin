@@ -1,0 +1,8 @@
+########################################
+##
+##  Beroepen Config File
+##
+########################################
+
+##error bericht dat je krijgt bij /beroep add [beroepnaam]
+foute_argumenten_1: "Foutieve argument gebruik: /beroep add [beroepnaam]"

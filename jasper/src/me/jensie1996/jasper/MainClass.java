@@ -1,5 +1,7 @@
 package me.jensie1996.jasper;
 
+import java.io.File;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -10,13 +12,26 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 
 public class MainClass extends JavaPlugin{
-	
+	File file = new File(getDataFolder(), "config.yml");
+	// startup
 	@Override
 	public void onEnable(){ 
+		
 		ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
-		console.sendMessage(ChatColor.GREEN + "Plugin Jasper is aangezet.");
+		console.sendMessage(ChatColor.GREEN + "Plugin Beroepen is Geactiveerd !");
+		
+			//als de file nog niet bestaat eentje aanmaken.
+			if(!this.file.exists()){
+				getLogger().info("Config.yml niet gevonden, creeren van config.yml");
+				saveDefaultConfig(); //config genereren.
+			}
+		// de website class :)
+		
+		getCommand("info").setExecutor(new website());
 	}
 	
+	// einde start up
+	//begin command /beroep add
 	public boolean onCommand(CommandSender zender, Command cmd, String label, String[] args){
 		
 		if(cmd.getName().equals("beroep")){
@@ -48,8 +63,8 @@ public class MainClass extends JavaPlugin{
 					
 //				}
 				
-
-			}else speler.sendMessage("Foute argumenten. Gebruik /beroep add.");
+// kijk in config voor bericht
+			}else speler.sendMessage(ChatColor.RED + this.getConfig().getString("foute_argumenten_1"));
 			
 			return true;
 		}	
