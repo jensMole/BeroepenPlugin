@@ -1,0 +1,7 @@
+name: jasper
+main: me.jensie1996.jasper.MainClass
+version: 1.0
+commands:
+    beroep:
+        description: test
+        usage: /<command>
