@@ -1,0 +1,10 @@
+todo:
+
+
+]----------------voor Jens------[
+
+bij de info class maken dat je dingen in een config kan zetten.
+
+]---------------Voor jasper----------[
+
+

@@ -27,7 +27,7 @@ public class MainClass extends JavaPlugin{
 			}
 		// de website class :)
 		
-		getCommand("info").setExecutor(new website());
+		getCommand("info").setExecutor(new Info());
 	}
 	
 	// einde start up
@@ -38,7 +38,7 @@ public class MainClass extends JavaPlugin{
 			
 			//nakijken als het geen speler is en de code laten stoppen.
 			if(!(zender instanceof Player)) {
-				zender.sendMessage("Je bent geen speler.");
+				zender.sendMessage(ChatColor.RED + this.getConfig().getString("geen_speler_error"));
 				return true;
 			}
 			
