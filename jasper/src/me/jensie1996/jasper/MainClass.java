@@ -1,5 +1,7 @@
 package me.jensie1996.jasper;
 
+
+
 import java.io.File;
 
 import org.bukkit.Bukkit;
@@ -27,14 +29,21 @@ public class MainClass extends JavaPlugin{
 			}
 		// de website class :)
 		
-		getCommand("info").setExecutor(new Info());
-	}
+			getCommand("info").setExecutor(new Info());
+			
+			Bukkit.getServer().getPluginManager().registerEvents(new BlockListener(), this);
+			
+			getCommand("update").setExecutor(new Versie());
+		}
+		
 	
 	// einde start up
 	//begin command /beroep add
 	public boolean onCommand(CommandSender zender, Command cmd, String label, String[] args){
 		
 		if(cmd.getName().equals("beroep")){
+			Player speler = (Player) zender;
+			speler.hasPermission("beroepen.add");
 			
 			//nakijken als het geen speler is en de code laten stoppen.
 			if(!(zender instanceof Player)) {
@@ -42,7 +51,7 @@ public class MainClass extends JavaPlugin{
 				return true;
 			}
 			
-			Player speler = (Player) zender;
+			Player verzender = (Player) zender;
 			
 			int lengte = args.length;
 			
@@ -57,14 +66,14 @@ public class MainClass extends JavaPlugin{
 					
 					if(args[0].equals("add")){
 						
-						speler.sendMessage("test");
+						verzender.sendMessage("test");
 						
 					}
 					
 //				}
 				
 // kijk in config voor bericht
-			}else speler.sendMessage(ChatColor.RED + this.getConfig().getString("foute_argumenten_1"));
+			}else verzender.sendMessage(ChatColor.RED + this.getConfig().getString("foute_argumenten_1"));
 			
 			return true;
 		}	
